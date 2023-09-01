@@ -1,0 +1,19 @@
+.form-control{
+    padding-left: 40px;
+}.mb-3{
+    position: relative;
+}
+i{
+    position: absolute;
+    left: 15px;
+    top: 11px;
+}
+.mb-3{
+    position: relative;
+}
+button{
+    width: 100%;
+}
+.card{
+    padding: 40px;
+}

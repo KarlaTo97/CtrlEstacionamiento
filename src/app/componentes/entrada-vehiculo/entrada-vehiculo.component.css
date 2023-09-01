@@ -1,0 +1,65 @@
+header{
+    background: rgb(185, 185, 185); 
+    margin: 5px 2px;
+    padding: 1px;
+}
+h1{
+    text-align: center;
+    color: #063971;
+    margin-top: 45px;
+}
+h5{
+    font: #063971;
+    padding: 8px;
+    margin: 8px 0px;
+    text-align: center;
+}
+button{
+    width: 20%;
+}
+
+body{
+    text-align: center;
+    
+}
+.form-control{
+    padding-left: 40px;
+}
+#categ{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    padding: 5px;
+    width: 400px;
+  }
+  select{
+    padding: 5px;
+    width: 400px;
+    padding-left: 40px;
+    margin: 25px 0px;
+  }
+  .card{
+    padding: 40px;
+    margin: 10px;
+}
+#btnGu{
+    width: 100%;
+}
+#btns{
+    width:30%;
+    margin: 3px;
+
+}
+.container{
+    align-items: center;
+    float: right;
+    margin: -570px 0px;
+}
+.card{
+    padding: 60px;
+    width: 400px;
+    text-align: center;
+    margin-top: 200px;
+}

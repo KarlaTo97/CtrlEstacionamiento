@@ -1,0 +1,11 @@
+.pie-pagina{
+    width: 99.7%;
+    position: fixed;
+    bottom: 0;
+    clear: both;
+    padding: 5px;
+    background: #063971;
+    color: #ffffff;
+    margin:2px;
+
+}

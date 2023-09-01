@@ -1,0 +1,26 @@
+h1{
+  text-align: center;
+  color: #063971;
+}
+h5{
+  padding: 8px;
+  margin: 8px 0px;
+  text-align: center;
+}
+.desde{
+  text-align: center;
+}
+.hasta{
+  align-items: center;
+  float: right;
+  margin: -100px 0px;
+}
+#bot{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#espacio{
+  padding:40px;
+}

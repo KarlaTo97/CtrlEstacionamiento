@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Operadores</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <h1 class="mb-5"style="color: #063971;">Operadores</h1>
+  <div id="formulario" class="card col-md-4 mt-3 mb-3">
+    <div class="card-header bg-info text-center mb-3">
+      <h5 style="color: white">Nuevo Operador</h5>
+    </div>
+    <form #operadorForm="ngForm" (ngSubmit)="createUsuario(operadorForm)">
+      <input type="hidden" name="id_usuario" [(ngModel)]="operadoresService.operador.id_usuario">
+      <input type="hidden" name="id_tipo" value="2" [(ngModel)]="operadoresService.operador.id_tipo">
+      <div class="mb-3">
+        <i class="fa-solid fa-user"></i>
+        <input  type="text"  class="form-control" placeholder="Nombre completo" name="nombre"
+          [(ngModel)]="operadoresService.operador.nombre">
+      </div>
+      <div class="mb-3">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text"  class="form-control" placeholder="Usuario" name="usuario"
+          [(ngModel)]="operadoresService.operador.usuario">
+      </div>
+      <div class="mb-3">
+        <i class="fa-solid fa-key"></i>
+        <input type="password"  class="form-control"  placeholder="Contraseña"  name="contrasena"
+          [(ngModel)]="operadoresService.operador.contrasena">
+      </div>
+      <div class="mb-3">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input type="email"  class="form-control"  placeholder="Correo electronico" name="email"
+            [(ngModel)]="operadoresService.operador.email"
+        >
+      </div>
+      <div class="mb-3">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <input  type="text"  class="form-control" placeholder="Dirección"  name="direccion"
+          [(ngModel)]="operadoresService.operador.direccion">
+      </div>
+      <div class="mb-3">
+        <i class="fa-solid fa-phone"></i>
+        <input type="tel" class="form-control"  placeholder="Teléfono/Celular"
+          name="telefono" [(ngModel)]="operadoresService.operador.telefono">
+      </div>
+      <button id="btnGu" type="reset" class="btn btn-info mb-3" (click)="formReset(operadorForm)" >Limpiar</button>
+      <button id="btnGu" type="submit" class="btn btn-success">Guardar</button>
+      <br />
+    </form>
+  </div>
+<div class="container col-md-8">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Nombre Del Operador</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of operadoresService.operadores; let indice=index ">
+      <tr *ngIf="item.id_tipo=='2'"  >
+        <td>{{indice}}</td>
+        <td>{{item.nombre}}</td>
+        <td>
+          <button id="btns" type="button" class="btn btn-danger" (click)="deleteOperador(item.id_usuario)">Eliminar</button>
+          <button id="btns" type="button" class="btn btn-warning" (click)="editUsuario(item)">Editar</button>
+          <button id="btns" type="button" class="btn btn-success" (click)="getUsuario(item.id_usuario);disabledInput = !disabledInput"
+            data-bs-toggle="modal" data-bs-target="#modalDetalle">Ver</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div id="espacio" style="padding: 30px;"></div>
+
+<div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Detalles</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="disabledInput = !disabledInput"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="id_usuario" [(ngModel)]="operadoresService.operador.id_usuario">
+        <input type="hidden" name="id_tipo" value="2" [(ngModel)]="operadoresService.operador.id_tipo">
+        <div class="mb-3">
+          <i class="fa fa-cog"></i>
+          <input type="text"
+            class="form-control"
+            name="tipoM"
+            *ngIf="operadoresService.operador.id_tipo=='2'"
+            [disabled]="disabledInput"
+            value="Operador"
+            >
+        </div>
+        <div class="mb-3">
+          <i class="fa-solid fa-user"></i>
+          <input type="text"
+            class="form-control"
+            name="nombreM"
+            [disabled]="disabledInput"
+            [(ngModel)]="operadoresService.operador.nombre"
+            >
+        </div>
+        <div class="mb-3">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Usuario"
+            name="usuarioM"
+            [disabled]="disabledInput"
+            [(ngModel)]="operadoresService.operador.usuario"
+          >
+        </div>
+        <div class="mb-3">
+          <i class="fa-solid fa-key"></i>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Contraseña"
+            name="contrasenaM"
+            [disabled]="disabledInput"
+            [(ngModel)]="operadoresService.operador.contrasena"
+          >
+        </div>
+        <div class="mb-3">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <input 
+              type="email"
+              class="form-control"
+              placeholder="Correo electronico"
+              name="emailM"
+              [disabled]="disabledInput"
+              [(ngModel)]="operadoresService.operador.email"
+          >
+        </div>
+        <div class="mb-3">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Dirección"
+            name="direccionM"
+            [disabled]="disabledInput"
+            [(ngModel)]="operadoresService.operador.direccion"
+          />
+        </div>
+        <div class="mb-3">
+          <i class="fa-solid fa-phone"></i>
+          <input
+            type="tel"
+            class="form-control"
+            placeholder="Teléfono/Celular"
+            name="telefonoM"
+            [disabled]="disabledInput"
+            [(ngModel)]="operadoresService.operador.telefono"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="disabledInput = !disabledInput">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

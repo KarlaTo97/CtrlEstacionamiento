@@ -1,0 +1,46 @@
+
+  <body class="mt-2 mb-2">
+    <h1>Corte de caja</h1>
+    <div>
+      <div class="mb-5" style="text-align: center;">
+        <button type="button" class="btn btn-success" (click)="getCorte()">Realizar corte</button>
+      </div>
+    </div>
+    <div class="tabla" style="width: 90%; margin: 25px 150px;">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Ticket</th>
+                <th scope="col">Tipo de vehículo</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Hora entrada</th>
+                <th scope="col">Hora salida</th>
+                <th scope="col">Monto</th>
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of corteCajaService.cortes" class="text-center">
+                <td>{{item.codigo}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>{{item.placa}}</td>
+                <td>{{item.hora_entrada}}</td>
+                <td>{{item.hora_salida}}</td>
+                <td>{{item.monto * 1 | currency}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th>Total:</th>
+                <td>{{total | currency}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div> 
+    
+    <div id="espacio" style="padding: 30px;"></div>
+    
+  </body>
+

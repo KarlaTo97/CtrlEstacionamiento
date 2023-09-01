@@ -1,0 +1,19 @@
+h1{
+  text-align: center;
+  color: #063971;
+  margin: 25px 0px 0px 0px;
+}
+input{
+  padding: 5px;
+  width: 220px;
+  padding-left: 40px;
+  margin: 25px 0px;
+}
+i{
+  position: absolute;
+  padding: 10px;
+}
+.container{
+  align-items: center;
+  float: center;
+}

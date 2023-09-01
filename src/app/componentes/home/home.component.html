@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-8" style="text-align: center">
+    <h1>Estacionamiento PEÑA</h1>
+    <p>"Te lo mantiene seguro, sin problema alguno"</p>
+    <img src="assets/estacfondo.jpg" alt="imagen" width="550px">
+  </div>
+
+  <div class="col-md-4" id="isesion" style="text-align: center">
+    <img
+      src="assets/peña.png"
+      alt="peña"
+      width="300px"
+      style="margin: 8px auto"
+    />
+    <h1 id="is">-Iniciar sesión-</h1>
+    <form #loginForm="ngForm">
+      <div class="input-group mb-4 flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">@
+        </span>
+        <input
+          type="text" class="form-control" name="usuario"
+          placeholder="Usuario"  [(ngModel)]="usuario"
+          required="required" 
+        />
+      </div>
+      <div class="input-group mb-4 flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">*</span>
+        <input
+          type="password" class="form-control"
+          [(ngModel)]="password" name="password"
+          placeholder="Contraseña"
+        />
+      </div>
+      <div class="mb-4">
+        <button type="submit" class="btn btn-primary"  (click)="loginUsuario()">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>Ingresar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="espacio" style="padding: 30px;"></div>

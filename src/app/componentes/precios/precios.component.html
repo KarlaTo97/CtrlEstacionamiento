@@ -1,0 +1,53 @@
+<body>
+  <div>
+    <h1 class="mb-5">Precios</h1>
+  </div>
+  <div class="container col-md-8">
+    <table class="table" id="tbprecios">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Precio</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of preciosService.precios">
+        <tr>
+          <td>{{item.descripcion}}</td>
+          <td>${{item.costo}}</td>
+          <td>
+            <button id="btns" type="button" class="btn btn-warning" (click)="editPrecios(item)"
+              data-bs-toggle="modal" data-bs-target="#modalEditar">Editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Costo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #precioForm="ngForm" (ngSubmit)="createPrecios(precioForm)">
+            <input type="hidden" name="id_categoria" [(ngModel)]="preciosService.precio.id_categoria">
+            <input type="hidden" name="descripcion" [(ngModel)]="preciosService.precio.descripcion">
+            <div class="mb-5">
+              <i class="fa fa-usd"></i>
+              <input  type="text" class="form-control" placeholder="Costo" name="costo"
+                [(ngModel)]="preciosService.precio.costo">
+            </div>
+            <button id="btnGu" type="submit" class="btn btn-success">Guardar</button>
+            <br/>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

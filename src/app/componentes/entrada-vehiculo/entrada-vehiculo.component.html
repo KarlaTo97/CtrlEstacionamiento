@@ -1,0 +1,85 @@
+
+<body>
+  <h1>Entrada Vehículo</h1>
+  <div id="formulario" class="card col-md-4 mt-3 mb-3">
+    <div class="card-header bg-info text-center mb-3">
+      <h5 style="color: white">Nuevo Vehículo</h5>
+    </div>
+    <form #autoForm="ngForm" (ngSubmit)="createAuto(autoForm)">
+      <input type="hidden" name="id_auto" [(ngModel)]="accesosService.auto.id_auto" >
+      <div id="categ" style="margin-top: 10px;">
+        <input type="text" placeholder="Placa" class="form-control" name="placa"
+        [(ngModel)]="accesosService.auto.placa">
+      </div>
+      <div id="categ" >
+        <select  class="form-select" >
+          <option selected>Seleccionar categoría</option>
+          <option value="1">Vehículo ligero</option>
+          <option value="2">Vehículo pesado</option>
+          <option value="3">Pensión</option>
+        </select>
+      </div>
+      <div id="categ" class="mb-3">
+        <input type="text" placeholder="Modelo" class="form-control" name="modelo"
+          [(ngModel)]="accesosService.auto.modelo">
+      </div>
+      <div id="categ" class="mb-3">
+        <input type="text" placeholder="Marca" class="form-control" name="marca"
+          [(ngModel)]="accesosService.auto.marca">
+      </div>
+      <div id="categ" class="mb-3">
+        <input type="text" placeholder="Color" class="form-control" name="color"
+          [(ngModel)]="accesosService.auto.color">
+      </div>
+      <button id="btnGu" type="reset" class="btn btn-info mb-3" (click)="formReset(autoForm)" >Limpiar</button>
+      <button id="btnGu" type="submit" class="btn btn-success">Registrar Vehículo</button>
+    </form>
+  </div>
+  <div class="container col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Placa</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of accesosService.autos; let indice=index">
+        <tr>
+          <td>{{indice}}</td>
+          <td>{{item.placa}}</td>
+          <td>
+            <button id="btns" type="button" class="btn btn-success" (click)="getAuto(item.id_auto)"
+            data-bs-toggle="modal" data-bs-target="#modalDetalle">Registrar Entrada</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="espacio" style="padding: 30px;"></div>
+
+  <div class="modal fade" id="modalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Registrar Acceso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #accesoForm="ngForm" (ngSubmit)="createAcceso(accesoForm)">
+            <input type="hidden" name="id_acceso" [(ngModel)]="accesosService.acceso.id_acceso">
+            <input type="hidden" name="id_auto" [(ngModel)]="accesosService.auto.id_auto">
+            <input type="hidden" name="id_usuario" value="2" [(ngModel)]="accesosService.acceso.id_usuario">
+
+            <div id="categ" class="mb-3">
+              <input type="text" placeholder="Codigo" class="form-control" name="codigo"
+                [(ngModel)]="accesosService.acceso.codigo">
+            </div>
+            <button id="btnGu" type="submit" class="btn btn-success">Guardar</button>
+            <button id="btnGu" class="btn btn-success" (click)="printTicket()">Imprimir Ticket</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

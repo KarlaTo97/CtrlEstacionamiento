@@ -1,0 +1,23 @@
+#menu{
+    background: #063971;
+    margin: 2px;
+}
+option{
+    background: #063971;
+}
+img{
+    width: 200px;
+    float: left;
+}
+a{
+    margin: 0px 20px;
+    font: verdana 15px;
+}
+select{
+    margin: 0px 35px;
+}
+header{
+    background: rgb(185, 185, 185); 
+    margin: 5px 2px;
+    padding: 1px;
+}

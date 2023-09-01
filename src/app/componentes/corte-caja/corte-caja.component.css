@@ -1,0 +1,32 @@
+header{
+    background: rgb(185, 185, 185); 
+    margin: 5px 2px;
+    padding: 1px;
+}
+h1{
+    text-align: center;
+    color: #063971;
+}
+.table{
+    width: 80%;
+    text-align: center;
+}
+.tabla{
+    margin: 0 auto;
+}
+#corte{
+    text-align: center;
+}
+h5{
+    padding: 8px;
+    margin: 8px 0px;
+    text-align: center;
+  }
+  .hasta{
+    align-items: center;
+    float: right;
+    margin: -100px 0px;
+  }
+  .desde{
+    text-align: center;
+  }

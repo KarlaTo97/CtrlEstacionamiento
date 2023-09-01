@@ -1,0 +1,52 @@
+.form-control{
+    padding-left: 60px;
+}
+
+.mt-3{
+    
+    width: 700px;
+    text-align: center;
+    
+    
+
+}
+
+#btns{
+    width:30%;
+    margin: 3px;
+
+}
+.card{
+    padding: 60px;
+    width: 400px;
+    text-align: center;
+    margin-top: 200px;
+}
+body{
+    text-align: center;
+}
+.form-control{
+    padding-left: 40px;
+}.mb-3{
+    position: relative;
+}
+i{
+    position: absolute;
+    left: 15px;
+    top: 11px;
+}
+.mb-3{
+    position: relative;
+}
+#btnGu{
+    width: 100%;
+}
+.card{
+    padding: 40px;
+    margin: 10px;
+}
+.container{
+    align-items: center;
+    float: right;
+    margin: -570px 0px;
+}
